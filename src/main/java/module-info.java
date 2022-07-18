@@ -3,6 +3,7 @@ module com.afpa.bibliotheque {
 	requires javafx.fxml;
 	requires static lombok;
 	requires javafx.base;
+	requires javafx.graphics;
 
 	opens com.afpa.bibliotheque to javafx.fxml;
 

@@ -15,7 +15,7 @@
                   <Image url="@../../../icon/loupe.png" />
               </image>
           </ImageView>
-            <TextField maxWidth="1020.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="385.0" HBox.hgrow="ALWAYS">
+            <TextField maxWidth="1020.0" minHeight="-Infinity" minWidth="200.0" prefHeight="32.0" prefWidth="385.0" HBox.hgrow="ALWAYS">
          <font>
             <Font size="14.0" />
          </font>

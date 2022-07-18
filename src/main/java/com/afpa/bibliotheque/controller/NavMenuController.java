@@ -53,15 +53,16 @@ public class NavMenuController implements Initializable {
 			displayMenuButton.setText(">");
 
 			translateButton.setByX(-mainContainer.getWidth() + displayMenuButton.getWidth());
-			translateButton.play();
+
 		} else {
 
 			displayMenuButton.setText("<");
 
 			translateButton.setByX(mainContainer.getWidth() - displayMenuButton.getWidth());
-			translateButton.play();
 
 		}
+
+		translateButton.play();
 
 	}
 

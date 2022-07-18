@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="mainContainer" prefHeight="595.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afpa.bibliotheque.controller.NavMenuController">
+<HBox fx:id="mainContainer" minWidth="-Infinity" prefHeight="595.0" prefWidth="239.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afpa.bibliotheque.controller.NavMenuController">
    <children>
       <VBox fx:id="menuVBox" alignment="CENTER" prefHeight="575.0" prefWidth="230.0" spacing="14.0">
          <children>
