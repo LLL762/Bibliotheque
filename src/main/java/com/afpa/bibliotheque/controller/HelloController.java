@@ -1,4 +1,4 @@
-package com.afpa.bibliotheque;
+package com.afpa.bibliotheque.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
