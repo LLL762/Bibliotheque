@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.afpa.bibliotheque","l":"com.afpa.bibliotheque"},{"m":"com.afpa.bibliotheque","l":"com.afpa.bibliotheque.controller"},{"m":"com.afpa.bibliotheque","l":"com.afpa.bibliotheque.entity"}];updateSearchResults();

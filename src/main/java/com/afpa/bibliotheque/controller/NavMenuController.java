@@ -18,36 +18,79 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * The type Nav menu controller.
+ */
 public class NavMenuController implements Initializable {
 
 
+    /**
+     * Fxml loader de la scene stats.
+     */
     private final FXMLLoader statsLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
+    /**
+     * Fxml loader de la scene adherent.
+     */
     private final FXMLLoader adherentLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_FICHE_ADHERANT.fxml"));
-    private final FXMLLoader empruntLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_RECHERCHE_EMPRUNT.fxml"));
+    /**
+     * Fxml loader de la scene gestion livre.
+     */
+    private final FXMLLoader gestionLivreLoader = new FXMLLoader(HelloApplication.class.getResource("modification.fxml"));
+    /**
+     * Fxml loader de la scene liste livre.
+     */
     private final FXMLLoader listeLivreLoader = new FXMLLoader(HelloApplication.class.getResource("liste-livres.fxml"));
-    private final TranslateTransition translateButton = new TranslateTransition();
+
+    /**
+     * Fxml loader de la scene gestion home.
+     */
+    private final FXMLLoader homeLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+
+
+    /**
+     * Animation de transition cachant ou revelant le menu.
+     */
+    private final TranslateTransition translateMenu = new TranslateTransition();
+
+    /**
+     * Bouton déclenchant {@link #translateMenu }
+     */
     @FXML
     private Button displayMenuButton;
+    /**
+     * Vbox contenant le menu.
+     */
     @FXML
     private VBox menuVBox;
+    /**
+     * Conteneur principal.
+     */
     @FXML
     private HBox mainContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        init();
+        initTranslateMenu();
 
     }
 
-    public void init() {
+    /**
+     * Init {@link #translateMenu }.
+     */
+    public void initTranslateMenu() {
 
-        translateButton.setNode(mainContainer);
-        translateButton.setDuration(Duration.millis(375));
-        translateButton.setOnFinished(e -> displayMenuButton.setDisable(false));
+        translateMenu.setNode(mainContainer);
+        translateMenu.setDuration(Duration.millis(375));
+        translateMenu.setOnFinished(e -> displayMenuButton.setDisable(false));
 
     }
 
 
+    /**
+     * Go to stats scene.
+     *
+     * @throws IOException
+     */
     public void goToStats() throws IOException {
 
         changeScene(statsLoader);
@@ -56,30 +99,60 @@ public class NavMenuController implements Initializable {
     }
 
 
+    /**
+     * Go to adherent scene.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
-    void goToAdherent() throws IOException {
+    public void goToAdherent() throws IOException {
 
         changeScene(adherentLoader);
 
 
     }
 
+    /**
+     * Go to gestion livre scene.
+     *
+     * @throws IOException the io exception
+     */
     @FXML
-    void goToEmprunt() throws IOException {
+    public void goToGestionLivre() throws IOException {
 
-        changeScene(empruntLoader);
-
+        changeScene(gestionLivreLoader);
 
     }
 
-    @FXML
-    void goToListeLivre() throws IOException {
 
+    /**
+     * Go to home scene.
+     *
+     * @throws IOException the io exception
+     */
+    @FXML
+    public void goToHome() throws IOException {
+        changeScene(homeLoader);
+
+    }
+
+    /**
+     * Go to liste livre scene.
+     *
+     * @throws IOException the io exception
+     */
+    @FXML
+    public void goToListeLivre() throws IOException {
         changeScene(listeLivreLoader);
 
-
     }
 
+    /**
+     * Change scene.
+     *
+     * @param fxmlLoader fxml loader
+     * @throws IOException
+     */
     private void changeScene(final FXMLLoader fxmlLoader) throws IOException {
 
         final Parent root = fxmlLoader.load();
@@ -94,12 +167,17 @@ public class NavMenuController implements Initializable {
     }
 
 
+    /**
+     * Action assignée à {@link #displayMenuButton}, l'animation montre ou cache le menu selon son etat.
+     * Durant l'animation le menu et le bouton sont inaccessible.
+     * Si le menu est caché il devient inacessible (pas de focus).
+     */
     @FXML
     private void displayMenu() {
 
         // TO DO refactor .
 
-        if (translateButton.getStatus() == Status.RUNNING) {
+        if (translateMenu.getStatus() == Status.RUNNING) {
 
             return;
         }
@@ -110,20 +188,20 @@ public class NavMenuController implements Initializable {
 
             menuVBox.setDisable(true);
 
-            translateButton.setByX(-mainContainer.getBoundsInLocal().getWidth() + displayMenuButton.getBoundsInLocal().getWidth());
+            translateMenu.setByX(-mainContainer.getBoundsInLocal().getWidth() + displayMenuButton.getBoundsInLocal().getWidth());
 
         } else {
 
             displayMenuButton.setText("<");
             menuVBox.setDisable(false);
 
-            translateButton.setByX(mainContainer.getBoundsInLocal().getWidth() - displayMenuButton.getBoundsInLocal().getWidth());
+            translateMenu.setByX(mainContainer.getBoundsInLocal().getWidth() - displayMenuButton.getBoundsInLocal().getWidth());
 
         }
 
         displayMenuButton.setDisable(true);
 
-        translateButton.play();
+        translateMenu.play();
 
     }
 

@@ -10,15 +10,23 @@ import lombok.Setter;
  *
  * @author Laurent Lamiral
  */
-
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Theme {
 
+    /**
+     * The Id.
+     */
     private Long id;
+    /**
+     * The Nom.
+     */
     private String nom;
+    /**
+     * The Description.
+     */
     private String description;
 
 
