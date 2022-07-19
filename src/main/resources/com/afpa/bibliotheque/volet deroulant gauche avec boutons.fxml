@@ -17,7 +17,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" text="Adhérent.e.s" textAlignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#goToAdherent" prefHeight="50.0" prefWidth="185.0" text="Adhérent.e.s" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
@@ -27,7 +27,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" text="Emprunter un livre">
+            <Button mnemonicParsing="false" onAction="#goToEmprunt" prefHeight="50.0" prefWidth="185.0" text="Emprunter un livre">
                <font>
                   <Font size="14.0" />
                </font>
