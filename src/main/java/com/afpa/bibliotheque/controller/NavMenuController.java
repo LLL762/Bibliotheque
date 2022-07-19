@@ -1,8 +1,5 @@
 package com.afpa.bibliotheque.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.animation.Animation.Status;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -12,64 +9,64 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class NavMenuController implements Initializable {
 
-	@FXML
-	private Button displayMenuButton;
+    private final TranslateTransition translateButton = new TranslateTransition();
+    @FXML
+    private Button displayMenuButton;
+    @FXML
+    private VBox menuVBox;
+    @FXML
+    private HBox mainContainer;
 
-	@FXML
-	private VBox menuVBox;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        init();
 
-	@FXML
-	private HBox mainContainer;
+    }
 
-	private final TranslateTransition translateButton = new TranslateTransition();
+    public void init() {
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		init();
+        translateButton.setNode(mainContainer);
+        translateButton.setDuration(Duration.millis(375));
+        translateButton.setOnFinished(e -> displayMenuButton.setDisable(false));
 
-	}
+    }
 
-	public void init() {
+    @FXML
+    private void displayMenu() {
 
-		translateButton.setNode(mainContainer);
-		translateButton.setDuration(Duration.millis(1000));
-		translateButton.setOnFinished(e -> displayMenuButton.setDisable(false));
+        // TO DO refactor .
 
-	}
+        if (translateButton.getStatus() == Status.RUNNING) {
 
-	@FXML
-	private void displayMenu() {
+            return;
+        }
 
-		// TO DO refactor .
+        if (displayMenuButton.getText().equals("<")) {
 
-		if (translateButton.getStatus() == Status.RUNNING) {
+            displayMenuButton.setText(">");
 
-			return;
-		}
+            menuVBox.setDisable(true);
 
-		if (displayMenuButton.getText().equals("<")) {
+            translateButton.setByX(-mainContainer.getBoundsInLocal().getWidth() + displayMenuButton.getBoundsInLocal().getWidth());
 
-			displayMenuButton.setText(">");
+        } else {
 
-			menuVBox.setDisable(true);
+            displayMenuButton.setText("<");
+            menuVBox.setDisable(false);
 
-			translateButton.setByX(-mainContainer.getWidth() + displayMenuButton.getWidth());
+            translateButton.setByX(mainContainer.getBoundsInLocal().getWidth() - displayMenuButton.getBoundsInLocal().getWidth());
 
-		} else {
+        }
 
-			displayMenuButton.setText("<");
-			menuVBox.setDisable(false);
+        displayMenuButton.setDisable(true);
 
-			translateButton.setByX(mainContainer.getWidth() - displayMenuButton.getWidth());
+        translateButton.play();
 
-		}
-
-		displayMenuButton.setDisable(true);
-
-		translateButton.play();
-
-	}
+    }
 
 }
