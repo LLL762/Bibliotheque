@@ -1,14 +1,20 @@
 package com.afpa.bibliotheque.controller;
 
+import com.afpa.bibliotheque.HelloApplication;
 import javafx.animation.Animation.Status;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -33,6 +39,17 @@ public class NavMenuController implements Initializable {
         translateButton.setNode(mainContainer);
         translateButton.setDuration(Duration.millis(375));
         translateButton.setOnFinished(e -> displayMenuButton.setDisable(false));
+
+    }
+
+
+    public void goToStats() throws IOException {
+        final FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
+        final Parent root = loader.load();
+        final Stage stage;
+        
+        stage = (Stage) mainContainer.getScene().getWindow();
+        stage.setScene(new Scene(root));
 
     }
 
