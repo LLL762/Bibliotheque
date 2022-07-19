@@ -1,0 +1,63 @@
+================================================
+|                                              |
+|         Centre culturel des Marmusots        |                            
+|                                              |
+|           12 rue de la destitution           |
+|             63000 Clermont-Ferrand           |
+|                                              |
+|            Code bibliotèque : 0123A          |
+|                                              |
+================================================
+    
+    Le lundi 01 Janvier 1972
+
+
+    Reçu pour : PRENOM NOM
+    Adhérent numéro : 12345678
+    Adhésion jusqu'au : 12 / 01 / 2023
+
+================================================
+            
+            LISTE DES PRETS EN COURS
+                
+                ----------------
+
+    Titre : Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit. ...
+
+    ISBN : 0123456789012
+    Code Exemplaire : 0123456789012-4
+    Bibliotèque de prêt : 0123A
+
+    Emprunter le :          24 / 06 / 2022
+    A rendre avant le :     12 / 07 / 2022
+    
+                ----------------
+
+    Titre : Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit. ...
+            
+    ISBN : 0123456789012
+    Code Exemplaire : 0123456789012-4
+    Bibliotèque de prêt : 0123A
+
+    Emprunter le :          28 / 06 / 2022
+    A rendre avant le :     16 / 07 / 2022
+
+                    ----------------
+
+    Titre : Lorem ipsum dolor sit amet, 
+            consectetur adipiscing elit. ...
+            
+    ISBN : 0123456789012
+    Code Exemplaire : 0123456789012-4
+    Bibliotèque de prêt : 0123A
+
+    Emprunter le :          02 / 07 / 2022
+    A rendre avant le :     22 / 07 / 2022
+
+================================================
+
+    La bibliotèque municipale vous remercie
+    de votre visite et vous souhaite une bonne
+    journée.
