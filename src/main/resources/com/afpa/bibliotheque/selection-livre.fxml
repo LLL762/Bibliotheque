@@ -2,7 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
@@ -12,62 +14,87 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="960.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
-  <content>
-      <BorderPane prefHeight="598.0" prefWidth="957.0">
-         <top>
-            <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
-               <children>
-                  <Label text="Sélection de livre">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </FlowPane>
-         </top>
-         <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="957.0">
+
+<BorderPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane prefHeight="900.0" prefWidth="1602.0">
+               <top>
+                  <MenuBar BorderPane.alignment="CENTER">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Close" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Delete" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="About" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+               </top>
+               <center>
+                  <HBox prefHeight="875.0" prefWidth="1351.0" spacing="25.0" BorderPane.alignment="CENTER">
                      <children>
-                        <ImageView fitHeight="91.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" />
-                        <VBox prefHeight="91.0" prefWidth="640.0">
+                        <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" />
+                        <VBox alignment="CENTER" prefHeight="656.0" prefWidth="1138.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <FlowPane alignment="CENTER">
                                  <children>
-                                    <Label text="Label">
+                                    <Label text="Sélection de livre">
                                        <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Label">
-                                       <font>
-                                          <Font size="14.0" />
+                                          <Font size="24.0" />
                                        </font>
                                     </Label>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </FlowPane>
+                              <HBox alignment="CENTER" prefHeight="85.0" prefWidth="957.0">
+                                 <children>
+                                    <ImageView fitHeight="91.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox prefHeight="91.0" prefWidth="640.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Label">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Label">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
                               </HBox>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="C1" />
+                                  <TableColumn prefWidth="75.0" text="C2" />
+                                </columns>
+                              </TableView>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
-                  <TableView prefHeight="200.0" prefWidth="200.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
-  </content>
-</ScrollPane>
+               </center>
+            </BorderPane>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
