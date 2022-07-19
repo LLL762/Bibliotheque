@@ -37,7 +37,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="185.0" text="Statistiques">
+            <Button mnemonicParsing="false" onAction="#goToStats" prefHeight="50.0" prefWidth="185.0" text="Statistiques">
                <font>
                   <Font size="14.0" />
                </font>
