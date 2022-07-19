@@ -24,6 +24,7 @@ public class NavMenuController implements Initializable {
     private final FXMLLoader statsLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
     private final FXMLLoader adherentLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_FICHE_ADHERANT.fxml"));
     private final FXMLLoader empruntLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_RECHERCHE_EMPRUNT.fxml"));
+    private final FXMLLoader listeLivreLoader = new FXMLLoader(HelloApplication.class.getResource("liste-livres.fxml"));
     private final TranslateTransition translateButton = new TranslateTransition();
     @FXML
     private Button displayMenuButton;
@@ -49,11 +50,8 @@ public class NavMenuController implements Initializable {
 
     public void goToStats() throws IOException {
 
-        final Parent root = statsLoader.load();
-        final Stage stage;
+        changeScene(statsLoader);
 
-        stage = (Stage) mainContainer.getScene().getWindow();
-        stage.setScene(new Scene(root));
 
     }
 
@@ -61,22 +59,36 @@ public class NavMenuController implements Initializable {
     @FXML
     void goToAdherent() throws IOException {
 
-        final Parent root = adherentLoader.load();
-        final Stage stage;
+        changeScene(adherentLoader);
 
-        stage = (Stage) mainContainer.getScene().getWindow();
-        stage.setScene(new Scene(root));
 
     }
 
     @FXML
     void goToEmprunt() throws IOException {
 
-        final Parent root = empruntLoader.load();
+        changeScene(empruntLoader);
+
+
+    }
+
+    @FXML
+    void goToListeLivre() throws IOException {
+
+        changeScene(listeLivreLoader);
+
+
+    }
+
+    private void changeScene(final FXMLLoader fxmlLoader) throws IOException {
+
+        final Parent root = fxmlLoader.load();
         final Stage stage;
+        final Scene scene;
 
         stage = (Stage) mainContainer.getScene().getWindow();
-        stage.setScene(new Scene(root));
+
+        stage.setScene(new Scene(root, mainContainer.getScene().getWidth(), mainContainer.getScene().getHeight()));
 
 
     }
