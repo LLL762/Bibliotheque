@@ -20,6 +20,10 @@ import java.util.ResourceBundle;
 
 public class NavMenuController implements Initializable {
 
+
+    private final FXMLLoader statsLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
+    private final FXMLLoader adherentLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_FICHE_ADHERANT.fxml"));
+    private final FXMLLoader empruntLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_RECHERCHE_EMPRUNT.fxml"));
     private final TranslateTransition translateButton = new TranslateTransition();
     @FXML
     private Button displayMenuButton;
@@ -44,14 +48,39 @@ public class NavMenuController implements Initializable {
 
 
     public void goToStats() throws IOException {
-        final FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
-        final Parent root = loader.load();
+
+        final Parent root = statsLoader.load();
         final Stage stage;
-        
+
         stage = (Stage) mainContainer.getScene().getWindow();
         stage.setScene(new Scene(root));
 
     }
+
+
+    @FXML
+    void goToAdherent() throws IOException {
+
+        final Parent root = adherentLoader.load();
+        final Stage stage;
+
+        stage = (Stage) mainContainer.getScene().getWindow();
+        stage.setScene(new Scene(root));
+
+    }
+
+    @FXML
+    void goToEmprunt() throws IOException {
+
+        final Parent root = empruntLoader.load();
+        final Stage stage;
+
+        stage = (Stage) mainContainer.getScene().getWindow();
+        stage.setScene(new Scene(root));
+
+
+    }
+
 
     @FXML
     private void displayMenu() {
