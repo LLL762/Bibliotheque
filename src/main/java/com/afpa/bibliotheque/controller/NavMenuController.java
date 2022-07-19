@@ -35,13 +35,14 @@ public class NavMenuController implements Initializable {
 
 		translateButton.setNode(mainContainer);
 		translateButton.setDuration(Duration.millis(1000));
+		translateButton.setOnFinished(e -> displayMenuButton.setDisable(false));
 
 	}
 
 	@FXML
 	private void displayMenu() {
 
-		// TO DO fix small graphic glitch and refactor .
+		// TO DO refactor .
 
 		if (translateButton.getStatus() == Status.RUNNING) {
 
@@ -52,15 +53,20 @@ public class NavMenuController implements Initializable {
 
 			displayMenuButton.setText(">");
 
+			menuVBox.setDisable(true);
+
 			translateButton.setByX(-mainContainer.getWidth() + displayMenuButton.getWidth());
 
 		} else {
 
 			displayMenuButton.setText("<");
+			menuVBox.setDisable(false);
 
 			translateButton.setByX(mainContainer.getWidth() - displayMenuButton.getWidth());
 
 		}
+
+		displayMenuButton.setDisable(true);
 
 		translateButton.play();
 

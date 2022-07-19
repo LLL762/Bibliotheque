@@ -44,9 +44,9 @@
          <center>
             <HBox prefHeight="595.0" prefWidth="530.0" spacing="25.0" BorderPane.alignment="CENTER">
                <children>
-                  <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" />
                   <GridPane prefHeight="595.0" prefWidth="489.0" HBox.hgrow="ALWAYS">
                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
                         <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
                     </columnConstraints>
@@ -56,8 +56,7 @@
                       <RowConstraints minHeight="10.0" percentHeight="33.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <fx:include source="barre-recherche.fxml" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" HBox.hgrow="ALWAYS" />
-                        <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
+                        <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2">
                            <children>
                               <Label text="Bienvenu chez notre bibliothèque !">
                                  <font>
@@ -66,6 +65,8 @@
                               </Label>
                            </children>
                         </FlowPane>
+                        <fx:include source="barre-recherche.fxml" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" HBox.hgrow="ALWAYS" />
+                        <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" GridPane.rowSpan="3" />
                      </children>
                   </GridPane>
                </children>
