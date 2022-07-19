@@ -44,7 +44,7 @@
          <center>
             <HBox prefHeight="873.0" prefWidth="1651.0" spacing="25.0" BorderPane.alignment="CENTER">
                <children>
-                  <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" GridPane.rowSpan="3" />
+                  <fx:include source="volet deroulant gauche avec boutons.fxml"/>
                   <VBox prefHeight="873.0" prefWidth="1275.0" spacing="40.0">
                      <children>
                         <HBox alignment="CENTER_LEFT" spacing="30.0" VBox.vgrow="NEVER">
