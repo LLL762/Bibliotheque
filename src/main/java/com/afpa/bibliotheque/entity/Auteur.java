@@ -16,8 +16,17 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Auteur {
 
+    /**
+     * The Id.
+     */
     private Long id;
+    /**
+     * The Nom.
+     */
     private String nom;
+    /**
+     * The Prenom.
+     */
     private String prenom;
 
 }

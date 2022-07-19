@@ -19,12 +19,30 @@ import java.util.Set;
 @AllArgsConstructor
 public class Livre {
 
+    /**
+     * The Id.
+     */
     private Long id;
+    /**
+     * The Isbn.
+     */
     private Long isbn;
+    /**
+     * The Titre.
+     */
     private String titre;
+    /**
+     * The Icon url.
+     */
     private String iconUrl;
+    /**
+     * The Theme.
+     */
     private Theme theme;
 
+    /**
+     * The Auteurs.
+     */
     private Set<Auteur> auteurs = new HashSet<>();
 
 

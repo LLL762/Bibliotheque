@@ -1,0 +1,4 @@
+module:com.afpa.bibliotheque
+com.afpa.bibliotheque
+com.afpa.bibliotheque.controller
+com.afpa.bibliotheque.entity
