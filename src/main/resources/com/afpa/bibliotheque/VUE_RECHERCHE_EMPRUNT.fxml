@@ -11,9 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-
 
 <BorderPane prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <top>
@@ -37,9 +35,6 @@
          </menus>
       </MenuBar>
    </top>
-   <right>
-      <Pane prefHeight="595.0" prefWidth="179.0" BorderPane.alignment="CENTER" />
-   </right>
    <center>
       <HBox prefHeight="595.0" prefWidth="530.0" spacing="25.0" BorderPane.alignment="CENTER">
          <children>
