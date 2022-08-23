@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Auteur {
+public class Contributeur {
 
     /**
      * The Id.

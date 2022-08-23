@@ -1,12 +1,13 @@
 package com.afpa.bibliotheque.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 18/07/2022.
@@ -15,6 +16,7 @@ import java.util.Set;
  */
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Livre {
@@ -22,6 +24,8 @@ public class Livre {
     /**
      * The Id.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
      * The Isbn.
@@ -38,12 +42,12 @@ public class Livre {
     /**
      * The Theme.
      */
-    private Theme theme;
+//    private Theme theme;
 
     /**
      * The Auteurs.
      */
-    private Set<Auteur> auteurs = new HashSet<>();
+//    private Set<Contributeur> contributeurs = new HashSet<>();
 
 
 }
