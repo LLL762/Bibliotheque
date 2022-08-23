@@ -1,7 +1,6 @@
 package com.afpa.bibliotheque.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -9,19 +8,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public abstract class AbstractRepo<T, S> {
 
-    private final EntityManagerFactory emf;
 
-    public Optional<T> findById(final S id) {
+    private final Class<T> typeClass;
 
-        final EntityManager em = emf.createEntityManager();
-        T outputValue;
+    public Optional<T> findById(final S id, final EntityManager em) {
 
-        em.getTransaction().begin();
+        return Optional.ofNullable(em.find(typeClass, id));
 
-
-        em.getTransaction().commit();
-
-        return Optional.empty();
 
     }
 

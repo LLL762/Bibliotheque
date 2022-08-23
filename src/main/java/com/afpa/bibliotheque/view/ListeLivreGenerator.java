@@ -12,7 +12,7 @@ import static javafx.scene.layout.Priority.ALWAYS;
 import static javafx.scene.layout.Priority.NEVER;
 
 public class ListeLivreGenerator {
-    
+
     public HBox createLivreItem(final Livre livre) {
         final HBox output = new HBox();
         final Image imgIcon = new Image(livre.getIconUrl());

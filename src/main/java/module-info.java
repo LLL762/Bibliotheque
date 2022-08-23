@@ -7,7 +7,7 @@ module com.afpa.bibliotheque {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires com.h2database;
-
+    requires java.desktop;
 
     opens com.afpa.bibliotheque to javafx.fxml;
 

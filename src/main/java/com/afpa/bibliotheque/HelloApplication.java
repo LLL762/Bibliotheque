@@ -1,10 +1,8 @@
 package com.afpa.bibliotheque;
 
-import com.afpa.bibliotheque.entity.Livre;
-import com.afpa.bibliotheque.repository.LivreRepo;
+import com.afpa.bibliotheque.container.SceneContainer;
+import com.afpa.bibliotheque.repository.LivreRepoImpl;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,20 +23,17 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        LivreRepo repo = new LivreRepo();
 
-        Livre livre = new Livre();
-        livre.setIsbn(14789L);
-        livre.setTitre("toto");
+        LivreRepoImpl repo = new LivreRepoImpl();
 
-        repo.create(livre);
-        System.out.println(repo.findByTitle("toto").get(0));
-        System.out.println(repo.findByTitle("Derrick").get(0));
+        System.out.println(repo.findByTitle("Derrick"));
+
+
+        SceneContainer.INSTANCE.init();
 
         stage.setTitle("Bibliothèque");
-        stage.setScene(scene);
+        stage.setScene(SceneContainer.INSTANCE.getHomeScene());
         stage.show();
+
     }
 }

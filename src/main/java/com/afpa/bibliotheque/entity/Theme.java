@@ -1,9 +1,7 @@
 package com.afpa.bibliotheque.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import static jakarta.persistence.FetchType.LAZY;
@@ -16,8 +14,6 @@ import static jakarta.persistence.GenerationType.AUTO;
  */
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Theme {
 

@@ -1,12 +1,10 @@
 package com.afpa.bibliotheque.controller;
 
-import com.afpa.bibliotheque.HelloApplication;
+import com.afpa.bibliotheque.container.SceneContainer;
 import javafx.animation.Animation.Status;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -25,32 +23,12 @@ public class NavMenuController implements Initializable {
 
 
     /**
-     * Fxml loader de la scene stats.
-     */
-    private final FXMLLoader statsLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_STATISTIQUE.fxml"));
-    /**
-     * Fxml loader de la scene adherent.
-     */
-    private final FXMLLoader adherentLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_FICHE_ADHERANT.fxml"));
-    /**
-     * Fxml loader de la scene gestion livre.
-     */
-    private final FXMLLoader gestionLivreLoader = new FXMLLoader(HelloApplication.class.getResource("modification.fxml"));
-    /**
-     * Fxml loader de la scene liste livre.
-     */
-    private final FXMLLoader listeLivreLoader = new FXMLLoader(HelloApplication.class.getResource("liste-livres.fxml"));
-
-    /**
-     * Fxml loader de la scene gestion home.
-     */
-    private final FXMLLoader homeLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-
-
-    /**
      * Animation de transition cachant ou revelant le menu.
      */
     private final TranslateTransition translateMenu = new TranslateTransition();
+
+
+    private Stage stage;
 
     /**
      * Bouton déclenchant {@link #translateMenu }
@@ -83,6 +61,7 @@ public class NavMenuController implements Initializable {
         translateMenu.setDuration(Duration.millis(375));
         translateMenu.setOnFinished(e -> displayMenuButton.setDisable(false));
 
+
     }
 
 
@@ -93,8 +72,7 @@ public class NavMenuController implements Initializable {
      */
     public void goToStats() throws IOException {
 
-        changeScene(statsLoader);
-
+        changeScene(SceneContainer.INSTANCE.getStatsScene());
 
     }
 
@@ -107,8 +85,7 @@ public class NavMenuController implements Initializable {
     @FXML
     public void goToAdherent() throws IOException {
 
-        changeScene(adherentLoader);
-
+        changeScene(SceneContainer.INSTANCE.getAdherentScene());
 
     }
 
@@ -120,7 +97,7 @@ public class NavMenuController implements Initializable {
     @FXML
     public void goToGestionLivre() throws IOException {
 
-        changeScene(gestionLivreLoader);
+        changeScene(SceneContainer.INSTANCE.getGestionLivreScene());
 
     }
 
@@ -132,7 +109,8 @@ public class NavMenuController implements Initializable {
      */
     @FXML
     public void goToHome() throws IOException {
-        changeScene(homeLoader);
+
+        changeScene(SceneContainer.INSTANCE.getHomeScene());
 
     }
 
@@ -143,26 +121,25 @@ public class NavMenuController implements Initializable {
      */
     @FXML
     public void goToListeLivre() throws IOException {
-        changeScene(listeLivreLoader);
+
+
+        changeScene(SceneContainer.INSTANCE.getListeLivreScene());
 
     }
 
-    /**
-     * Change scene.
-     *
-     * @param fxmlLoader fxml loader
-     * @throws IOException
-     */
-    private void changeScene(final FXMLLoader fxmlLoader) throws IOException {
 
-        final Parent root = fxmlLoader.load();
-        final Stage stage;
-        final Scene scene;
+    private void changeScene(final Scene scene) throws IOException {
+
+        final double height = mainContainer.getScene().getWindow().getHeight();
+        final double width = mainContainer.getScene().getWindow().getWidth();
+
 
         stage = (Stage) mainContainer.getScene().getWindow();
+        stage.setScene(scene);
+  
 
-        stage.setScene(new Scene(root, mainContainer.getScene().getWidth(), mainContainer.getScene().getHeight()));
-
+        stage.getScene().getWindow().setHeight(height);
+        stage.getScene().getWindow().setWidth(width);
 
     }
 

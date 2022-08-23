@@ -1,7 +1,9 @@
 package com.afpa.bibliotheque.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.NaturalId;
 
 import static jakarta.persistence.FetchType.LAZY;
@@ -14,8 +16,6 @@ import static jakarta.persistence.GenerationType.IDENTITY;
  */
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "livre")
 @ToString
