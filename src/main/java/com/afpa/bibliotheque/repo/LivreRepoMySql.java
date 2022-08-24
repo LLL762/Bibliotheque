@@ -13,7 +13,7 @@ public class LivreRepoMySql implements LivreRepo {
     @Override
     public List<Livre> findByTitre(final String titre, final EntityManager em) {
 
-        return em.createNamedQuery(LIVRE_FIND_BY_TITRE, Livre.class)
+        return em.createQuery(LIVRE_FIND_BY_TITRE, Livre.class)
                 .setParameter(LIVRE_PARAM_TITRE, titre)
                 .getResultList();
     }
