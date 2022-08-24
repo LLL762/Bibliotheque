@@ -1,76 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <content>
-      <BorderPane prefHeight="620.0" prefWidth="947.0">
-         <top>
-            <MenuBar BorderPane.alignment="CENTER">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </top>
-         <right>
-            <Pane prefHeight="595.0" prefWidth="179.0" BorderPane.alignment="CENTER" />
-         </right>
-         <center>
-            <HBox prefHeight="595.0" prefWidth="530.0" spacing="25.0" BorderPane.alignment="CENTER">
-               <children>
-                  <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" GridPane.rowSpan="3" />
-                  <GridPane prefHeight="595.0" prefWidth="489.0" HBox.hgrow="ALWAYS">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints percentHeight="33.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" percentHeight="33.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" percentHeight="33.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2">
-                           <children>
-                              <Label text="Bienvenu chez notre bibliothèque !">
-                                 <font>
-                                    <Font size="36.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </FlowPane>
-                        <fx:include source="barre-recherche.fxml" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </GridPane>
-               </children>
-            </HBox>
-         </center>
-      </BorderPane>
-   </content>
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afpa.bibliotheque.controller.SearchLivreController" fitToHeight="true"
+            fitToWidth="true" prefHeight="900.0" prefWidth="1600.0"
+            xmlns="http://javafx.com/javafx/18">
+    <content>
+        <BorderPane prefHeight="620.0" prefWidth="947.0">
+            <top>
+                <MenuBar BorderPane.alignment="CENTER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="File">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Edit">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete"/>
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About"/>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+            <right>
+                <Pane prefHeight="595.0" prefWidth="179.0" BorderPane.alignment="CENTER"/>
+            </right>
+            <center>
+                <HBox prefHeight="595.0" prefWidth="530.0" spacing="25.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <fx:include source="volet%20deroulant%20gauche%20avec%20boutons.fxml" GridPane.rowSpan="3"/>
+                        <GridPane prefHeight="595.0" prefWidth="489.0" HBox.hgrow="ALWAYS">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0"/>
+                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="50.0"/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints percentHeight="33.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" percentHeight="33.0" prefHeight="30.0"
+                                                vgrow="SOMETIMES"/>
+                                <RowConstraints minHeight="10.0" percentHeight="33.0" prefHeight="30.0"
+                                                vgrow="SOMETIMES"/>
+                            </rowConstraints>
+                            <children>
+                                <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0"
+                                          GridPane.columnSpan="2">
+                                    <children>
+                                        <Label text="Bienvenu chez notre bibliothèque !">
+                                            <font>
+                                                <Font size="36.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </FlowPane>
+                                <fx:include source="barre-recherche.fxml" GridPane.columnSpan="2"
+                                            GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" HBox.hgrow="ALWAYS"/>
+                                <Label fx:id="testLabel" prefHeight="109.0" prefWidth="412.0" text="Label"
+                                       GridPane.rowIndex="2">
+                                    <font>
+                                        <Font size="38.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                    </children>
+                </HBox>
+            </center>
+        </BorderPane>
+    </content>
 </ScrollPane>
