@@ -1,40 +1,27 @@
 package com.afpa.bibliotheque.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-/**
- * 18/07/2022.
- *
- * @author Laurent Lamiral
- */
+@Entity
+@Table( name = "theme" )
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Theme {
-
-    /**
-     * The Id.
-     */
+@ToString
+public
+class Theme
+{
+    /* @TODO : Considèrer la possibilité d'avoir un thème temporaire */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
-    /**
-     * The Nom.
-     */
-    private String nom;
-    /**
-     * The Description.
-     */
+
+    @Column( name = "libelle", length = 50 )
+    private String libellé;
+
+    @ToString.Exclude
+    @Column( name = "description", length = 500 )
     private String description;
-
-
 }

@@ -1,15 +1,27 @@
 package com.afpa.bibliotheque.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Table
+@Table ( name = "usure")
 @Getter
 @Setter
-public class Usure {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public
+class Usure
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
+
+    /* @TODO : Nom de l'état du livre à définir dans une énum ? */
+    @Column( name = "nom", length = 50 )
+    private String nom;
+
+    @ToString.Exclude
+    @Column( name = "description", length = 500 )
+    private String description;
 }
