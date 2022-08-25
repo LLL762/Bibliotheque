@@ -1,15 +1,25 @@
 package com.afpa.bibliotheque.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Table
+@Table( name = "biblioteque" )
 @Getter
 @Setter
-public class Bibliotheque {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public
+class Bibliotheque
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Integer id;
+
+    @Column( name = "libelle", length = 50 )
+    private String libelle;
+
+    @Column( name = "adresse", length = 500 )
+    private String adresse;
 }

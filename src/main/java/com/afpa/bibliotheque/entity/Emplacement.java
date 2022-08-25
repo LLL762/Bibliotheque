@@ -1,16 +1,32 @@
 package com.afpa.bibliotheque.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
-@Table
+@Table( name = "emplacement" )
 @Getter
 @Setter
-public class Emplacement {
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+public
+class Emplacement
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Integer id;
+
+    @ManyToOne( fetch = LAZY )
+    @JoinColumn( name = "id_bibli" )
+    private Bibliotheque bibliotheque;
+
+    @ManyToOne( fetch = LAZY )
+    @JoinColumn( name = "id_theme" )
+    private Theme theme;
+
+    @Column( name = "libelle" )
+    private String libelle;
 }
