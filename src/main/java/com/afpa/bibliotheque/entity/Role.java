@@ -8,8 +8,16 @@ import lombok.Setter;
 @Table
 @Getter
 @Setter
-public class Role {
+public
+class Role
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Integer id;
+
+    @Column( name = "libelle", length = 50 )
+    private String libelle;
+
+    @Column( name = "niv_accred" )
+    private Integer nivAccred;
 }
