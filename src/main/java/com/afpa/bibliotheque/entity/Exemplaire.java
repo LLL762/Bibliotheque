@@ -21,23 +21,25 @@ class Exemplaire
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_bibli" )
-    private Long idBibli;
+    private Bibliotheque idBibli;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_emplac" )
-    private Long idEmplac;
+    private Emplacement idEmplac;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_livre" )
-    private Long idLivre;
+    private Livre idLivre;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_usure" )
-    private Long idUsure;
+    private Usure idUsure;
 
+/*
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_emprunt" )
     private Long idEmprunt;
+*/
 
     @ToString.Exclude
     @Column( name = "commentaire", length = 500 )

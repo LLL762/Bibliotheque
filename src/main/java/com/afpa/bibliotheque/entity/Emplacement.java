@@ -21,11 +21,11 @@ class Emplacement
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_bibli" )
-    private Long idBibli;
+    private Bibliotheque idBibli;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_theme" )
-    private Long idTheme;
+    private Theme idTheme;
 
     @Column( name = "libelle" )
     private String libelle;
