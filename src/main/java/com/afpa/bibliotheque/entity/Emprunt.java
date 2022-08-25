@@ -8,8 +8,10 @@ import lombok.Setter;
 @Table
 @Getter
 @Setter
-public class Emprunt {
+public
+class Emprunt
+{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 }
