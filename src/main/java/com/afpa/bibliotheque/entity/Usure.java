@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table ( name = "usure")
+@Table( name = "usure" )
 @Getter
 @Setter
 @NoArgsConstructor
@@ -15,7 +15,7 @@ class Usure
 {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     /* @TODO : Nom de l'état du livre à définir dans une énum ? */
     @Column( name = "nom", length = 50 )

@@ -17,29 +17,27 @@ class Exemplaire
 {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_bibli" )
-    private Bibliotheque idBibli;
+    private Bibliotheque bibliotheque;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_emplac" )
-    private Emplacement idEmplac;
+    private Emplacement emplacement;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_livre" )
-    private Livre idLivre;
+    private Livre livre;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_usure" )
-    private Usure idUsure;
+    private Usure usure;
 
-/*
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_emprunt" )
-    private Long idEmprunt;
-*/
+    private Emprunt emprunt;
 
     @ToString.Exclude
     @Column( name = "commentaire", length = 500 )

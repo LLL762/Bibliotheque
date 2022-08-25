@@ -17,15 +17,15 @@ class Emplacement
 {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_bibli" )
-    private Bibliotheque idBibli;
+    private Bibliotheque bibliotheque;
 
     @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_theme" )
-    private Theme idTheme;
+    private Theme theme;
 
     @Column( name = "libelle" )
     private String libelle;

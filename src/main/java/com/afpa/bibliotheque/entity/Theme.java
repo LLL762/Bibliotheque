@@ -16,7 +16,7 @@ class Theme
     /* @TODO : Considèrer la possibilité d'avoir un thème temporaire */
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private Integer id;
 
     @Column( name = "libelle", length = 50 )
     private String libellé;
