@@ -1,5 +1,9 @@
 package com.afpa.bibliotheque.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +16,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class Contributeur {
@@ -19,6 +24,8 @@ public class Contributeur {
     /**
      * The Id.
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /**
      * The Nom.
@@ -28,5 +35,7 @@ public class Contributeur {
      * The Prenom.
      */
     private String prenom;
+
+    private String pseudo;
 
 }

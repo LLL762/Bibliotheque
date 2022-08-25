@@ -6,6 +6,7 @@ import com.afpa.bibliotheque.model.SearchLivreModel;
 import com.afpa.bibliotheque.repo.LivreRepo;
 import com.afpa.bibliotheque.repo.LivreRepoMySql;
 import com.afpa.bibliotheque.service.LivreService;
+import com.afpa.bibliotheque.utility.HibernateUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
