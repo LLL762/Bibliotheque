@@ -18,5 +18,21 @@ public class ContributeurContributionPK implements Serializable {
     @Column(name = "contribution_id", insertable = false, updatable = false)
     private Long contributionId;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        ContributeurContributionPK that = (ContributeurContributionPK) o;
+
+        if (!contributeurId.equals(that.contributeurId)) return false;
+        return contributionId.equals(that.contributionId);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = contributeurId.hashCode();
+        result = 31 * result + contributionId.hashCode();
+        return result;
+    }
 }
