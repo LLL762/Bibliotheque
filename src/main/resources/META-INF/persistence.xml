@@ -15,6 +15,9 @@
         <class>com.afpa.bibliotheque.entity.Employe</class>
         <class>com.afpa.bibliotheque.entity.Role</class>
         <class>com.afpa.bibliotheque.entity.Utilisateur</class>
+        <class>com.afpa.bibliotheque.entity.Contributeur</class>
+        <class>com.afpa.bibliotheque.entity.Contribution</class>
+        <class>com.afpa.bibliotheque.entity.ContributeurContribution</class>
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
@@ -32,7 +35,7 @@
                       value="toto"/>
             <property name="javax.persistence.jdbc.password"
                       value="toto"/>
-            <!--      <property name="jakarta.persistence.sql-load-script-source" value="/sql-script/data.sql"/> -->
+            <property name="jakarta.persistence.sql-load-script-source" value="/sql-script/data.sql"/>
         </properties>
     </persistence-unit>
 
