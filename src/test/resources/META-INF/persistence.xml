@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="wtf">
+        <class>com.afpa.bibliotheque.entity.Livre</class>
+        <class>com.afpa.bibliotheque.entity.Theme</class>
+        <class>com.afpa.bibliotheque.entity.Exemplaire</class>
+        <class>com.afpa.bibliotheque.entity.Emprunt</class>
+        <class>com.afpa.bibliotheque.entity.Emplacement</class>
+        <class>com.afpa.bibliotheque.entity.Usure</class>
+        <class>com.afpa.bibliotheque.entity.Bibliotheque</class>
+        <class>com.afpa.bibliotheque.entity.Employe</class>
+        <class>com.afpa.bibliotheque.entity.Role</class>
+        <class>com.afpa.bibliotheque.entity.Utilisateur</class>
+        <class>com.afpa.bibliotheque.entity.Contributeur</class>
+        <class>com.afpa.bibliotheque.entity.Contribution</class>
+        <class>com.afpa.bibliotheque.entity.ContributeurContribution</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.connection.provider_class"
+                      value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.hikari.dataSourceClassName" value="org.h2.jdbcx.JdbcDataSource"/>
+            <property name="hibernate.hikari.dataSource.url"
+                      value="jdbc:h2:mem:bibli;DB_CLOSE_DELAY=-1; "/>
+            <property name="hibernate.hikari.dataSource.user" value="user"/>
+            <property name="hibernate.hikari.dataSource.password" value=""/>
+
+            <property name="jakarta.persistence.sql-load-script-source" value="/data.sql"/>
+
+        </properties>
+    </persistence-unit>
+
+</persistence>
