@@ -14,9 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public
-
-class Theme
-{
+class Theme {
     /**
      * The Id.
      */
@@ -30,18 +28,15 @@ class Theme
     /**
      * The Libelle.
      */
-    @Column( name = "libelle", length = 50, unique = true, nullable = false )
-
+    @Column(name = "libelle", length = 50, unique = true, nullable = false)
+    private String libelle;
 
 
     /**
      * The Description.
      */
     @ToString.Exclude
-
-    @Basic( fetch = FetchType.LAZY )
-    @Column( name = "description", length = 500 )
-
     @Basic(fetch = FetchType.LAZY)
     @Column(name = "description", length = 500)
+    private String description;
 }
