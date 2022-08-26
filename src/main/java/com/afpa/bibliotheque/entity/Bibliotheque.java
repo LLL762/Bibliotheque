@@ -6,7 +6,7 @@ import lombok.*;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
-@Table(name = "biblioteque")
+@Table(name = "bibliotheque")
 @Getter
 @Setter
 @NoArgsConstructor
