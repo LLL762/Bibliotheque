@@ -12,4 +12,11 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String nom;
+    private String niveau_access;
+
+
+
+
 }
