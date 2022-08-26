@@ -15,9 +15,11 @@ import lombok.*;
 @ToString
 public
 class Usure {
+
     /**
      * The Id.
      */
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

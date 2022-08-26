@@ -9,6 +9,7 @@ import java.time.LocalDate;
 /**
  * The type Utilisateur.
  */
+
 @Entity
 @Table( name = "utilisateur" )
 @Getter
@@ -20,6 +21,7 @@ class Utilisateur
      * The Id.
      */
     @Id
+
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Integer id;
 
