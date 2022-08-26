@@ -20,10 +20,6 @@ class Exemplaire
     private Integer id;
 
     @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_bibli" )
-    private Bibliotheque bibliotheque;
-
-    @ManyToOne( fetch = LAZY )
     @JoinColumn( name = "id_emplac" )
     private Emplacement emplacement;
 
@@ -35,7 +31,7 @@ class Exemplaire
     @JoinColumn( name = "id_usure" )
     private Usure usure;
 
-    @ManyToOne( fetch = LAZY )
+    @OneToOne( fetch = LAZY )
     @JoinColumn( name = "id_emprunt" )
     private Emprunt emprunt;
 

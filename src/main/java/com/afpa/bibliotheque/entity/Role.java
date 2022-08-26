@@ -4,19 +4,33 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The type Role.
+ */
 @Entity
 @Table
 @Getter
 @Setter
-public class Role {
+public
+class Role
+{
+    /**
+     * The Id.
+     */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Integer id;
 
-    private String nom;
-    private String niveau_access;
+    /**
+     * The Libelle.
+     */
+    @Column( name = "libelle", length = 50 )
+    private String libelle;
 
-
-
-
+    /**
+     * The Niv accred.
+     */
+    @Column( name = "niv_accred" )
+    private Integer nivAccred;
 }
