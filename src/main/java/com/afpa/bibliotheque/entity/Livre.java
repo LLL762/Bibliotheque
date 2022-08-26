@@ -19,23 +19,25 @@ import static jakarta.persistence.FetchType.LAZY;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Livre {
+public
+class Livre
+{
 
     /**
      * The Id.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
     /**
      * The Isbn.
      */
-    @Column(unique = true, nullable = false)
-    private Long isbn;
+    @Column( length = 20, unique = true, nullable = false )
+    private String isbn;
     /**
      * The Titre.
      */
-    @Column(nullable = false)
+    @Column( nullable = false )
     private String titre;
     /**
      * The Icon url.
@@ -51,10 +53,8 @@ public class Livre {
     private Theme theme;
 
     @ManyToMany
-    @JoinTable(name = "livre_contributeur_contribution",
-            joinColumns = @JoinColumn(name = "livre_id"),
-            inverseJoinColumns = {@JoinColumn(name = "contributeur_id"),
-                    @JoinColumn(name = "contribution_id")})
+    @JoinTable( name = "livre_contributeur_contribution", joinColumns = @JoinColumn( name = "livre_id" ), inverseJoinColumns = {
+            @JoinColumn( name = "contributeur_id" ), @JoinColumn( name = "contribution_id" ) } )
     @ToString.Exclude
-    private List<ContributeurContribution> contributeurContributions = new ArrayList<>();
+    private List< ContributeurContribution > contributeurContributions = new ArrayList<>();
 }
