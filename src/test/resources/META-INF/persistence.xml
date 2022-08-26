@@ -21,20 +21,21 @@
 
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
 
-            <property name="hibernate.dialect"
-                      value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto"
-                      value="create-drop"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="jakarta.persistence.jdbc.url"
-                      value="jdbc:mysql://localhost:3306/bibliotheque_db?serverTimezone=UTC"/>
-            <property name="hibernate.hikari.dataSource.user"
-                      value="toto"/>
-            <property name="hibernate.hikari.dataSource.password"
-                      value="toto"/>
-            <property name="jakarta.persistence.sql-load-script-source" value="/sql-script/data.sql"/>
+            <property name="hibernate.connection.provider_class"
+                      value="org.hibernate.hikaricp.internal.HikariCPConnectionProvider"/>
+            <property name="hibernate.hikari.dataSourceClassName" value="org.h2.jdbcx.JdbcDataSource"/>
+            <property name="hibernate.hikari.dataSource.url"
+                      value="jdbc:h2:mem:bibli;DB_CLOSE_DELAY=-1; "/>
+            <property name="hibernate.hikari.dataSource.user" value="user"/>
+            <property name="hibernate.hikari.dataSource.password" value=""/>
+
+            <property name="jakarta.persistence.sql-load-script-source" value="/data.sql"/>
+
         </properties>
     </persistence-unit>
 

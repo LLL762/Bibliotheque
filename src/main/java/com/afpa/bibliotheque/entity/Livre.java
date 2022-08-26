@@ -1,10 +1,12 @@
 package com.afpa.bibliotheque.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 /**
  * 18/07/2022.
@@ -28,10 +30,12 @@ public class Livre {
     /**
      * The Isbn.
      */
+    @Column(unique = true, nullable = false)
     private Long isbn;
     /**
      * The Titre.
      */
+    @Column(nullable = false)
     private String titre;
     /**
      * The Icon url.
@@ -41,13 +45,16 @@ public class Livre {
      * The Theme.
      */
 
-//    @ToString.Exclude
-//    private Theme theme;
+    @ToString.Exclude
+    @ManyToOne( fetch = LAZY )
+    @JoinColumn( name = "id_theme" )
+    private Theme theme;
 
-    /**
-     * The Auteurs.
-     */
-//    private Set<Contributeur> contributeurs = new HashSet<>();
-
-
+    @ManyToMany
+    @JoinTable(name = "livre_contributeur_contribution",
+            joinColumns = @JoinColumn(name = "livre_id"),
+            inverseJoinColumns = {@JoinColumn(name = "contributeur_id"),
+                    @JoinColumn(name = "contribution_id")})
+    @ToString.Exclude
+    private List<ContributeurContribution> contributeurContributions = new ArrayList<>();
 }

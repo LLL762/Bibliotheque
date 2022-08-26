@@ -1,4 +1,4 @@
-package com.afpa.bibliotheque;
+package com.afpa.bibliotheque.utility;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

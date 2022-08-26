@@ -25,15 +25,16 @@ class Theme
     private Integer id;
 
     /**
-     * The Libellé.
+     * The Libelle.
      */
-    @Column( name = "libelle", length = 50 )
-    private String libellé;
+    @Column( name = "libelle", length = 50, unique = true, nullable = false )
+    private String libelle;
 
     /**
      * The Description.
      */
     @ToString.Exclude
+    @Basic( fetch = FetchType.LAZY )
     @Column( name = "description", length = 500 )
     private String description;
 }

@@ -7,33 +7,33 @@ import lombok.*;
  * The type Usure.
  */
 @Entity
-@Table( name = "usure" )
+@Table(name = "usure")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public
-class Usure
-{
+class Usure {
     /**
      * The Id.
      */
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
-     * The Libelle.
+     * The Nom.
      */
     /* @TODO : Nom de l'état du livre à définir dans une énum ? */
-    @Column( name = "libelle", length = 50 )
-    private String libelle;
+    @Column(name = "nom", length = 50, nullable = false, unique = true)
+    private String nom;
 
     /**
      * The Description.
      */
     @ToString.Exclude
-    @Column( name = "description", length = 500 )
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "description", length = 500)
     private String description;
 }
