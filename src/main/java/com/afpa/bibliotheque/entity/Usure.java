@@ -28,8 +28,8 @@ class Usure {
      * The Nom.
      */
     /* @TODO : Nom de l'état du livre à définir dans une énum ? */
-    @Column(name = "nom", length = 50, nullable = false, unique = true)
-    private String nom;
+    @Column(name = "libelle", length = 50, nullable = false, unique = true)
+    private String libelle;
 
     /**
      * The Description.
