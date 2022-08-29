@@ -12,25 +12,23 @@ import lombok.Setter;
 @Getter
 @Setter
 public
-class Role
-{
+class Role {
     /**
      * The Id.
      */
     @Id
-    
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
      * The Libelle.
      */
-    @Column( name = "libelle", length = 50 )
+    @Column(name = "libelle", length = 50, unique = true)
     private String libelle;
 
     /**
      * The Niv accred.
      */
-    @Column( name = "niv_accred" )
-    private Integer nivAccred;
+    @Column(name = "niv_accred")
+    private int nivAccred = 0;
 }

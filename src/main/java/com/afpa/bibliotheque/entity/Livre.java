@@ -6,8 +6,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakar
-ta.persistence.FetchType.LAZY;
+import static jakarta.persistence.FetchType.LAZY;
 
 /**
  * 18/07/2022.
@@ -45,10 +44,10 @@ public class Livre {
     /**
      * The Theme.
      */
-     
+
     @ToString.Exclude
-    @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_theme" )
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "id_theme")
     private Theme theme;
 
 
