@@ -10,7 +10,7 @@ import static jakarta.persistence.FetchType.LAZY;
  * The type Employe.
  */
 @Entity
-@Table
+@Table( name = "employe" )
 @Getter
 @Setter
 public
