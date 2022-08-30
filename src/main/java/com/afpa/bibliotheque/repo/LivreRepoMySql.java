@@ -4,6 +4,7 @@ import com.afpa.bibliotheque.entity.Livre;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.afpa.bibliotheque.repo.JPQLQuery.LIVRE_FIND_BY_TITRE;
 import static com.afpa.bibliotheque.repo.JPQLQuery.LIVRE_PARAM_TITRE;
@@ -16,6 +17,12 @@ public class LivreRepoMySql implements LivreRepo {
         return em.createQuery(LIVRE_FIND_BY_TITRE, Livre.class)
                 .setParameter(LIVRE_PARAM_TITRE, titre)
                 .getResultList();
+    }
+
+    @Override
+    public Optional<Livre> findById(Long id, EntityManager em) {
+
+        return Optional.ofNullable(em.find(Livre.class, id));
     }
 
 

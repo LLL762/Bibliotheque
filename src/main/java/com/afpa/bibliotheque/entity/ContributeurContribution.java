@@ -9,15 +9,16 @@ import lombok.Setter;
 @Setter
 @Table(name = "contributeur_contribution")
 public class ContributeurContribution {
+
     @EmbeddedId
     private ContributeurContributionPK id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "contributeur_id")
     @MapsId("contributeurId")
     private Contributeur contributeur;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "contribution_id")
     @MapsId("contributionId")
     private Contribution contribution;
