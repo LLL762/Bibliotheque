@@ -1,7 +1,6 @@
 package com.afpa.bibliotheque;
 
 import com.afpa.bibliotheque.entity.Livre;
-import com.afpa.bibliotheque.model.SearchLivreModel;
 import com.afpa.bibliotheque.repo.LivreRepo;
 import com.afpa.bibliotheque.repo.LivreRepoMySql;
 import com.afpa.bibliotheque.service.LivreService;
@@ -63,22 +62,10 @@ class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-
-        SearchLivreModel searchLivreModel = new SearchLivreModel(AppContainer.INSTANCE.getLivreService());
-
         Scene scene = new Scene(fxmlLoader.load());
-        /*        SearchLivreController controller = fxmlLoader.getController();*/
-        /*        controller.setModel(searchLivreModel);*/
-        /*        controller.setText();*/
-
-
-        List<Long> a = List.of(1L);
-
-        System.out.println(AppContainer.INSTANCE.getEmpruntService().getInfoEmprunt(a));
-
-
 
         stage.setTitle("Bibliothèque");
         stage.setScene(scene);
