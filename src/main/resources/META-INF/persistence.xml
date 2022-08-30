@@ -31,7 +31,7 @@
                       value="org.hibernate.tool.schema.internal.script.MultiLineSqlScriptExtractor"/>
             <property name="hibernate.hbm2ddl.import_files_sql_extractor"
                       value="org.hibernate.tool.schema.internal.script.MultiLineSqlScriptExtractor"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.hbm2ddl.import_files" value="/sql-script/data.sql"/>
             <!-- old version -> <property name="jakarta.persistence.sql-load-script-source" value="/sql-script/data.sql"/> -->
 

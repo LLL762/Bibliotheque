@@ -2,12 +2,10 @@ package com.afpa.bibliotheque.controller;
 
 import com.afpa.bibliotheque.HelloApplication;
 import com.afpa.bibliotheque.container.AppContainer;
-import com.afpa.bibliotheque.entity.Emprunt;
 import com.afpa.bibliotheque.entity.Utilisateur;
 import com.afpa.bibliotheque.model.InfoAdherentModel;
 import com.afpa.bibliotheque.model.InfoEmprunt;
 import com.afpa.bibliotheque.service.AdherentService;
-import com.afpa.bibliotheque.service.EmpruntService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -87,7 +85,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
     @FXML
     private Label telephone;
     private AdherentService adherentService;
-    private EmpruntService empruntService;
+
     @Setter
     private InfoAdherentModel infoAdherent = new InfoAdherentModel();
 
@@ -102,7 +100,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
     public void init() {
         adherentService = AppContainer.INSTANCE.getAdherentService();
-        empruntService = AppContainer.INSTANCE.getEmpruntService();
+
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> checkSearchBarContent(oldValue, newValue));
         infoAdherent.addPropertyChangeListener(this);
         message.setText("");
@@ -112,7 +110,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
     private void initTableView() {
         datePretCol.setCellValueFactory(new PropertyValueFactory<>("datePret"));
         dateRetourCol.setCellValueFactory(new PropertyValueFactory<>("dateRetour"));
-        bibliothequeCol.setCellValueFactory(new PropertyValueFactory<>("biblitoheque"));
+        bibliothequeCol.setCellValueFactory(new PropertyValueFactory<>("bibliotheque"));
         isbnCol.setCellValueFactory(new PropertyValueFactory<>("isbn"));
         codeExemplaireCol.setCellValueFactory(new PropertyValueFactory<>("exemplaireId"));
         titreCol.setCellValueFactory(new PropertyValueFactory<>("titre"));
@@ -137,21 +135,13 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
             adherent.ifPresentOrElse(utilisateur -> {
                 infoAdherent.setAdherent(adherent.get());
-                fetchInfoEmprunt(utilisateur);
                 message.setText("");
             }, () -> message.setText("Not found!"));
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
+            message.setText("Error!");
         }
-
-    }
-
-    private void fetchInfoEmprunt(final Utilisateur adherent) {
-
-        infoAdherent.setInfoEmprunt(empruntService.getInfoEmprunt(
-                adherent.getEmprunts().stream().map(Emprunt::getId).toList()));
-
 
     }
 
@@ -167,6 +157,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
     void updateInfoEmprunts() {
 
+        tableViewContent.setAll(infoAdherent.getInfoEmprunt());
 
     }
 
@@ -193,7 +184,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
         final Parent root = fxmlLoader.load();
         final Stage stage;
-        final Scene scene;
+      
 
         stage = (Stage) livreTableView.getScene().getWindow();
 
@@ -206,8 +197,9 @@ public class AdherentController implements Initializable, PropertyChangeListener
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
 
-        if (evt.getPropertyName().equals(InfoAdherentModel.ADHERENT_CHANGE_PROPERTY))
-
+        if (evt.getPropertyName().equals(InfoAdherentModel.ADHERENT_CHANGE_PROPERTY)) {
             updateInfoAdherent((Utilisateur) evt.getNewValue());
+            updateInfoEmprunts();
+        }
     }
 }
