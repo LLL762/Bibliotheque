@@ -1,10 +1,10 @@
 package com.afpa.bibliotheque.model;
 
-import com.afpa.bibliotheque.container.AppContainer;
 import com.afpa.bibliotheque.entity.Emprunt;
 import com.afpa.bibliotheque.entity.Utilisateur;
 import com.afpa.bibliotheque.service.EmpruntService;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@RequiredArgsConstructor
 public class InfoAdherentModel implements AppObservable {
 
 
     public static final String ADHERENT_CHANGE_PROPERTY = "adherent-change";
-    private final EmpruntService empruntService = AppContainer.INSTANCE.getEmpruntService();
+    private final EmpruntService empruntService;
     private PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private Utilisateur adherent;
     private List<InfoEmprunt> infoEmprunt = new ArrayList<>();

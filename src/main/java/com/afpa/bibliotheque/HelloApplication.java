@@ -68,9 +68,8 @@ class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-        LivreRepo livreRepo = new LivreRepoMySql();
-        LivreService livreService = new LivreService(HibernateUtil.EMF, livreRepo);
-        SearchLivreModel searchLivreModel = new SearchLivreModel(livreService);
+
+        SearchLivreModel searchLivreModel = new SearchLivreModel(AppContainer.INSTANCE.getLivreService());
 
         Scene scene = new Scene(fxmlLoader.load());
         SearchLivreController controller = fxmlLoader.getController();
@@ -78,7 +77,7 @@ class HelloApplication extends Application {
         controller.setText();
 
         List<Long> a = List.of(1L);
-        
+
         System.out.println(AppContainer.INSTANCE.getEmpruntService().getInfoEmprunt(a));
 
 

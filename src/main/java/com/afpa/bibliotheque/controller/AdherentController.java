@@ -87,7 +87,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
     private AdherentService adherentService;
 
     @Setter
-    private InfoAdherentModel infoAdherent = new InfoAdherentModel();
+    private InfoAdherentModel infoAdherent = new InfoAdherentModel(AppContainer.INSTANCE.getEmpruntService());
 
 
     @Override
@@ -104,6 +104,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> checkSearchBarContent(oldValue, newValue));
         infoAdherent.addPropertyChangeListener(this);
         message.setText("");
+        searchButton.setDisable(true);
         initTableView();
     }
 
@@ -123,7 +124,12 @@ public class AdherentController implements Initializable, PropertyChangeListener
         if (!newValue.isEmpty()) {
             searchBar.setText(newValue.length() <= MAX_NUM_ADHERENT_LENGTH &&
                     isDigit(newValue.charAt(newValue.length() - 1)) ? newValue : oldValue);
+            searchButton.setDisable(false);
+            return;
         }
+
+        searchButton.setDisable(true);
+
     }
 
     @FXML
@@ -184,7 +190,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
         final Parent root = fxmlLoader.load();
         final Stage stage;
-      
+
 
         stage = (Stage) livreTableView.getScene().getWindow();
 
