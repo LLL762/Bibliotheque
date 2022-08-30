@@ -151,7 +151,7 @@ public class AdherentController implements Initializable, PropertyChangeListener
         nom.setText(newAdherent.getNom());
         numeroAdhr.setText(newAdherent.getId().toString());
         adresse.setText(newAdherent.getAdresse());
-        telephone.setText(newAdherent.getTelephone().toString());
+        telephone.setText("0" + newAdherent.getTelephone().toString());
         dateExpiration.setText(newAdherent.getDateFinAdhesion().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
     }
 
