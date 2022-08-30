@@ -1,7 +1,5 @@
 package com.afpa.bibliotheque;
 
-import com.afpa.bibliotheque.container.AppContainer;
-import com.afpa.bibliotheque.controller.SearchLivreController;
 import com.afpa.bibliotheque.entity.Livre;
 import com.afpa.bibliotheque.model.SearchLivreModel;
 import com.afpa.bibliotheque.repo.LivreRepo;
@@ -18,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * The type Hello application.
@@ -43,11 +40,11 @@ class HelloApplication extends Application {
         try {
             tx.begin();
             entityManager.find(Livre.class, 1L);
+
             tx.commit();
         } finally {
             entityManager.close();
         }
-
     }
 
     public static void run() {
@@ -72,13 +69,15 @@ class HelloApplication extends Application {
         SearchLivreModel searchLivreModel = new SearchLivreModel(AppContainer.INSTANCE.getLivreService());
 
         Scene scene = new Scene(fxmlLoader.load());
-        SearchLivreController controller = fxmlLoader.getController();
-        controller.setModel(searchLivreModel);
-        controller.setText();
+        /*        SearchLivreController controller = fxmlLoader.getController();*/
+        /*        controller.setModel(searchLivreModel);*/
+        /*        controller.setText();*/
+
 
         List<Long> a = List.of(1L);
 
         System.out.println(AppContainer.INSTANCE.getEmpruntService().getInfoEmprunt(a));
+
 
 
         stage.setTitle("Bibliothèque");

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afpa.bibliotheque.controller.SearchLivreController" fitToHeight="true"
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1" fitToHeight="true"
             fitToWidth="true" prefHeight="900.0" prefWidth="1600.0"
             xmlns="http://javafx.com/javafx/18">
     <content>

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,20 +11,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+<VBox maxHeight="-Infinity" prefHeight="233.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.afpa.bibliotheque.controller.SearchLivreController">
+    <children>
+        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
             <children>
                 <ImageView fitHeight="32.0" fitWidth="32.0" HBox.hgrow="NEVER">
                     <image>
                         <Image url="@../../../icon/loupe.png" />
                     </image>
                 </ImageView>
-                  <TextField maxWidth="1020.0" minHeight="-Infinity" minWidth="200.0" prefHeight="32.0" prefWidth="385.0" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </TextField>
+                <TextField fx:id="saisie" maxWidth="1020.0" minHeight="-Infinity" minWidth="200.0" prefHeight="32.0" prefWidth="385.0" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
                 <ComboBox minWidth="-Infinity" prefWidth="164.0" HBox.hgrow="NEVER">
                     <HBox.margin>
                         <Insets />
@@ -31,14 +32,19 @@
                 </ComboBox>
             </children>
         </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="581.0">
+        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="581.0">
+            <children>
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rechercher" text="Rechercher">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Rechercher">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
+            <ListView fx:id="listeResultats" prefHeight="100.0" prefWidth="585.0" />
          </children>
-      </HBox>
-   </children>
+        </HBox>
+    </children>
 </VBox>
