@@ -110,7 +110,7 @@
                                                         <Insets left="20.0" right="20.0"/>
                                                     </GridPane.margin>
                                                     <children>
-                                                        <Label text="NOM :">
+                                                        <Label text="NOM : ">
                                                             <font>
                                                                 <Font size="14.0"/>
                                                             </font>
@@ -127,7 +127,7 @@
                                                         <Insets left="20.0" right="20.0"/>
                                                     </GridPane.margin>
                                                     <children>
-                                                        <Label text="N° ADHERENT :">
+                                                        <Label text="N° ADHERENT : ">
                                                             <font>
                                                                 <Font size="14.0"/>
                                                             </font>
@@ -145,7 +145,7 @@
                                                         <Insets left="20.0" right="20.0"/>
                                                     </GridPane.margin>
                                                     <children>
-                                                        <Label text="PRENOM :">
+                                                        <Label text="PRENOM : ">
                                                             <font>
                                                                 <Font size="14.0"/>
                                                             </font>
@@ -162,7 +162,7 @@
                                                         <Insets left="20.0" right="20.0"/>
                                                     </GridPane.margin>
                                                     <children>
-                                                        <Label text="ADRESSE">
+                                                        <Label text="ADRESSE : ">
                                                             <font>
                                                                 <Font size="14.0"/>
                                                             </font>
@@ -180,7 +180,7 @@
                                                         <Insets left="20.0" right="20.0"/>
                                                     </GridPane.margin>
                                                     <children>
-                                                        <Label text="TELEPHONE">
+                                                        <Label text="TELEPHONE : ">
                                                             <font>
                                                                 <Font size="14.0"/>
                                                             </font>
