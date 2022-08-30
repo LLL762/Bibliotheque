@@ -26,26 +26,27 @@ public class Emprunt {
     /**
      * The Adherent.
      */
-    @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_adherent" )
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "id_adherent")
     private Utilisateur adherent;
 
     /**
      * The Date emprunt.
      */
-    @Column( name = "date_emprunt", nullable = false )
+    @Column(name = "date_emprunt", nullable = false)
     private LocalDate dateEmprunt;
 
     /**
      * The Date rendu precu.
      */
-    @Column( name = "date_rendu_prevu" )
+    @Column(name = "date_rendu_prevu")
     private LocalDate dateRenduPrevu;
 
     /**
      * The Date rendu effectif.
      */
-    @Column( name = "date_rendu_effectif" )
+    @Column(name = "date_rendu_effectif")
     private LocalDate dateRenduEffectif;
+
 
 }
