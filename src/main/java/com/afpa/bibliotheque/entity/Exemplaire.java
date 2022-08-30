@@ -6,36 +6,35 @@ import lombok.*;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
-@Table( name = "exemplaire" )
+@Table(name = "exemplaire")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 public
-class Exemplaire
-{
+class Exemplaire {
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_emplac" )
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "id_emplac")
     private Emplacement emplacement;
 
-    @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_livre" )
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "id_livre")
     private Livre livre;
 
-    @ManyToOne( fetch = LAZY )
-    @JoinColumn( name = "id_usure" )
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "id_usure")
     private Usure usure;
 
-    @OneToOne( fetch = LAZY )
-    @JoinColumn( name = "id_emprunt" )
+    @OneToOne(fetch = LAZY)
+    @JoinColumn(name = "id_emprunt")
     private Emprunt emprunt;
 
     @ToString.Exclude
-    @Column( name = "commentaire", length = 500 )
+    @Basic(fetch = LAZY)
+    @Column(name = "commentaire", length = 500)
     private String commentaire;
 }

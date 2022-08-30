@@ -92,7 +92,7 @@ INSERT INTO `livre_contributeur_contribution` (`livre_id`, `contributeur_id`, `c
 --
 DELETE FROM `exemplaire`;
 INSERT INTO `exemplaire` (`id`, `id_emplac`, `id_livre`, `id_usure`, `id_emprunt`, `commentaire`) VALUES
-(1, 1, 1, 1, '', 'RAS' ),
+(1, 1, 1, 1, 1, 'RAS' ),
 (2, 1, 1, 2, '', 'Verifier la page 3'),
 (3, 4, 1, 1, '', 'RAS' ),
 (4, 2, 2, 1, '', 'RAS' ),
@@ -103,7 +103,7 @@ INSERT INTO `exemplaire` (`id`, `id_emplac`, `id_livre`, `id_usure`, `id_emprunt
 (9, 3, 5, 1, '', 'RAS' ),
 (10, 4, 6, 1, '', 'RAS' ),
 (11, 7, 6, 1, '', 'RAS' ),
-(12, 7, 7, 2, '', 'Verifier la page 39' ),
+(12, 7, 7, 2, 2, 'Verifier la page 39' ),
 (13, 7, 7, 1, '', 'RAS' ),
 (14, 4, 7, 1, '', 'RAS' ),
 (15, 8, 8, 1, '', 'RAS' ),
@@ -177,5 +177,6 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `adresse`, `telephone`, `email
 (5, 'Lavande', 'Juliane', '53 avenue de la boulangerie - Clermont-Ferrand', '0323568985', 'Juliane.Lavande@outlook.com', 'passe-de-mot','2021-10-04', '2022-10-04');
 
 
-
-
+DELETE FROM `emprunt`;
+INSERT INTO `emprunt` (id, id_adherent, date_emprunt, date_rendu_prevu) VALUES
+(1,1,'2022-11-21', '2022-12-21' ), (2,1,'2022-11-21', '2022-12-21' );

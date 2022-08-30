@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import static jakarta.persistence.FetchType.LAZY;
 
 /**
  * The type Utilisateur.
@@ -14,6 +18,12 @@ import java.time.LocalDate;
 @Table(name = "utilisateur")
 @Getter
 @Setter
+@NamedEntityGraph(
+        name = "adherent-fetch-emprunts",
+        attributeNodes = {
+                @NamedAttributeNode(value = "emprunts"),
+        }
+)
 public
 class Utilisateur {
     /**
@@ -70,4 +80,9 @@ class Utilisateur {
      */
     @Column(name = "date_fin_adhesion")
     private LocalDate dateFinAdhesion;
+
+    @OneToMany(fetch = LAZY, mappedBy = "adherent")
+    private List<Emprunt> emprunts = new ArrayList<>();
+
+
 }
