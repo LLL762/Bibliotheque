@@ -12,7 +12,7 @@ import static jakarta.persistence.FetchType.LAZY;
  * The type Emprunt.
  */
 @Entity
-@Table
+@Table( name = "emprunt" )
 @Getter
 @Setter
 public class Emprunt {
