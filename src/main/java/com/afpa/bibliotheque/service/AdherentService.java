@@ -11,6 +11,8 @@ public interface AdherentService {
 
     Optional<Utilisateur> getInfoAdherent(Integer id);
 
+    boolean canEmprunter(Integer adherentId);
+
     void addEmprunt(Utilisateur adherent, Emprunt emprunt);
 
 

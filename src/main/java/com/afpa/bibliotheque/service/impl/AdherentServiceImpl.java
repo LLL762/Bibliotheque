@@ -48,9 +48,16 @@ public class AdherentServiceImpl implements AdherentService {
         return output;
     }
 
+    @Override
+    public boolean canEmprunter(final Integer adherentId) {
+
+        return false;
+    }
+
 
     @Override
     public void addEmprunt(Utilisateur adherent, Emprunt emprunt) {
 
+        throw new UnsupportedOperationException();
     }
 }
