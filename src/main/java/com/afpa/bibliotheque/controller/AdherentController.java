@@ -6,6 +6,8 @@ import com.afpa.bibliotheque.entity.Utilisateur;
 import com.afpa.bibliotheque.model.InfoAdherentModel;
 import com.afpa.bibliotheque.model.InfoEmprunt;
 import com.afpa.bibliotheque.service.AdherentService;
+import com.afpa.bibliotheque.validation.InfoAdherentValidator;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lombok.Setter;
 
 import java.beans.PropertyChangeEvent;
@@ -27,7 +30,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static java.lang.Character.isDigit;
+import static com.afpa.bibliotheque.validation.InfoAdherentValidator.BLANK_MSG;
+import static com.afpa.bibliotheque.validation.InfoAdherentValidator.OK_MSG;
 
 /**
  * 19/07/2022.
@@ -40,7 +44,6 @@ public class AdherentController implements Initializable, PropertyChangeListener
      * Fxml loader pour la scene emprunt .
      */
 
-    private static final int MAX_NUM_ADHERENT_LENGTH = 10;
 
     private final FXMLLoader statsLoader = new FXMLLoader(HelloApplication.class.getResource("VUE_RECHERCHE_EMPRUNT.fxml"));
     private final ObservableList<InfoEmprunt> tableViewContent = FXCollections.observableArrayList();
@@ -83,8 +86,12 @@ public class AdherentController implements Initializable, PropertyChangeListener
     @FXML
     private Button searchButton;
     @FXML
+    private Button addEmpruntBtn;
+    @FXML
     private Label telephone;
     private AdherentService adherentService;
+
+    private InfoAdherentValidator validator;
 
     @Setter
     private InfoAdherentModel infoAdherent = new InfoAdherentModel(AppContainer.INSTANCE.getEmpruntService());
@@ -100,11 +107,13 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
     public void init() {
         adherentService = AppContainer.INSTANCE.getAdherentService();
-
         searchBar.textProperty().addListener((observable, oldValue, newValue) -> checkSearchBarContent(oldValue, newValue));
         infoAdherent.addPropertyChangeListener(this);
         message.setText("");
         searchButton.setDisable(true);
+
+
+        validator = new InfoAdherentValidator();
         initTableView();
     }
 
@@ -121,16 +130,32 @@ public class AdherentController implements Initializable, PropertyChangeListener
 
     void checkSearchBarContent(String oldValue, String newValue) {
 
-        if (!newValue.isEmpty()) {
-            searchBar.setText(newValue.length() <= MAX_NUM_ADHERENT_LENGTH &&
-                    isDigit(newValue.charAt(newValue.length() - 1)) ? newValue : oldValue);
-            searchButton.setDisable(false);
-            return;
+        final String validationMsg = validator.validateSearchInput(newValue);
+        PauseTransition delay;
+
+        switch (validationMsg) {
+            case BLANK_MSG -> {
+                searchBar.setText("");
+                searchButton.setDisable(true);
+                message.setText(infoAdherent.getAdherent() != null ? "" : BLANK_MSG);
+            }
+            case OK_MSG -> {
+                searchBar.setText(newValue);
+                searchButton.setDisable(false);
+                message.setText("");
+            }
+            default -> {
+                searchButton.setDisable(true);
+                searchBar.setText(oldValue);
+                message.setText(validationMsg);
+                delay = new PauseTransition(Duration.seconds(1.2));
+                delay.setOnFinished(e -> message.setText(""));
+                delay.play();
+
+            }
         }
-
-        searchButton.setDisable(true);
-
     }
+
 
     @FXML
     void searchAdherent() {
@@ -204,8 +229,11 @@ public class AdherentController implements Initializable, PropertyChangeListener
     public void propertyChange(PropertyChangeEvent evt) {
 
         if (evt.getPropertyName().equals(InfoAdherentModel.ADHERENT_CHANGE_PROPERTY)) {
+
             updateInfoAdherent((Utilisateur) evt.getNewValue());
             updateInfoEmprunts();
+            addEmpruntBtn.setDisable(!validator.canEmprunter((Utilisateur) evt.getNewValue(), infoAdherent.getInfoEmprunt().size()));
+
         }
     }
 }

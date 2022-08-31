@@ -1,10 +1,7 @@
 package com.afpa.bibliotheque;
 
+import com.afpa.bibliotheque.container.AppContainer;
 import com.afpa.bibliotheque.entity.Livre;
-import com.afpa.bibliotheque.model.SearchLivreModel;
-import com.afpa.bibliotheque.repo.LivreRepo;
-import com.afpa.bibliotheque.repo.LivreRepoMySql;
-import com.afpa.bibliotheque.service.LivreService;
 import com.afpa.bibliotheque.utility.HibernateUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -14,12 +11,14 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
 /**
  * The type Hello application.
  */
+@Slf4j
 public
 class HelloApplication extends Application {
     /**
@@ -49,39 +48,40 @@ class HelloApplication extends Application {
 
     public static void run() {
 
-        LivreRepo livreRepo = new LivreRepoMySql();
-        LivreService livreService = new LivreService(HibernateUtil.EMF, livreRepo);
-
-        System.out.println(livreService.findByTitre("Arnold"));
 
     }
 
+
     @Override
     public void init() {
-        System.out.println("[system] Methode init().");
+        log.info("[system] Methode init().");
+    }
+
+
+    @Override
+    public void stop() throws Exception {
+        final EntityManagerFactory emf = HibernateUtil.EMF;
+
+        if (emf.isOpen()) {
+            log.info("Factory closing...");
+            emf.close();
+            log.info("Factory closed");
+        }
     }
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-
-        SearchLivreModel searchLivreModel = new SearchLivreModel(AppContainer.INSTANCE.getLivreService());
+        log.info("loading container....");
+        AppContainer.INSTANCE.load();
 
         Scene scene = new Scene(fxmlLoader.load());
-        /*        SearchLivreController controller = fxmlLoader.getController();*/
-        /*        controller.setModel(searchLivreModel);*/
-        /*        controller.setText();*/
-
-
-        List<Long> a = List.of(1L);
-
-        System.out.println(AppContainer.INSTANCE.getEmpruntService().getInfoEmprunt(a));
-
-
 
         stage.setTitle("Bibliothèque");
         stage.setScene(scene);
         stage.show();
     }
+
+
 }

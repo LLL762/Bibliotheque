@@ -10,9 +10,12 @@ import com.afpa.bibliotheque.service.impl.EmpruntServiceImpl;
 import com.afpa.bibliotheque.service.impl.ExemplaireServiceImpl;
 import com.afpa.bibliotheque.utility.HibernateUtil;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
+@Slf4j
 public enum AppContainer {
+
 
     INSTANCE;
 
@@ -27,5 +30,9 @@ public enum AppContainer {
 
     private final ExemplaireRepo exemplaireRepo = new ExemplaireRepoMySql();
     private final ExemplaireService exemplaireService = new ExemplaireServiceImpl(exemplaireRepo, HibernateUtil.EMF);
+
+    public void load() {
+        log.info("container loaded");
+    }
 
 }

@@ -23,7 +23,7 @@ public class InfoAdherentModel implements AppObservable {
     private List<InfoEmprunt> infoEmprunt = new ArrayList<>();
 
 
-    public void setAdherent(Utilisateur adherent) {
+    public void setAdherent(final Utilisateur adherent) {
         fetchInfoEmprunt(adherent);
         pcs.firePropertyChange(ADHERENT_CHANGE_PROPERTY, this.adherent, adherent);
         this.adherent = adherent;
@@ -33,6 +33,7 @@ public class InfoAdherentModel implements AppObservable {
     private void fetchInfoEmprunt(Utilisateur adherent) {
         infoEmprunt = empruntService.getInfoEmprunt(adherent.getEmprunts().stream().map(Emprunt::getId).toList());
     }
+
 
     @Override
     public void addPropertyChangeListener(final PropertyChangeListener pcl) {

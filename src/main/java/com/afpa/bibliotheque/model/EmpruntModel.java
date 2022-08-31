@@ -41,7 +41,6 @@ public class EmpruntModel implements AppObservable {
 
     private void updateContributeursDisplays(final InfoExemplaire newValue) {
 
-        System.out.println(livreService.findById(newValue.getIdLivre()));
         contributeursDisplay = livreService.findById(newValue.getIdLivre()).stream().map(this::formatContribs).collect(Collectors.joining(", "));
 
     }
