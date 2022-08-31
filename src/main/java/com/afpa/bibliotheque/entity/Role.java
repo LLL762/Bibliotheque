@@ -8,7 +8,7 @@ import lombok.Setter;
  * The type Role.
  */
 @Entity
-@Table
+@Table(name = "role")
 @Getter
 @Setter
 public

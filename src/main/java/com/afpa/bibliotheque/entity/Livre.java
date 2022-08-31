@@ -16,6 +16,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Entity
+@Table( name = "livre" )
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
